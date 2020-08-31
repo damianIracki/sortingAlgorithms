@@ -1,3 +1,4 @@
+import algorithms.HeapSort;
 import algorithms.MergeSort;
 import algorithms.QuickSort;
 
@@ -18,6 +19,16 @@ public class Main {
         MergeSort.mergeSort(numbersToMergeSort);
         System.out.print("Sorted by mergeSort: ");
         for (int number : numbersToMergeSort) {
+            System.out.print(number + ", ");
+        }
+
+        System.out.println();
+
+
+        int[] numbersToHeapSort = {5, 12, 12, 10, 7, -1, 234, 67, 109, 11};
+        HeapSort.heapSort(numbersToHeapSort);
+        System.out.print("Sorted by heapSort: ");
+        for (int number : numbersToHeapSort) {
             System.out.print(number + ", ");
         }
 
