@@ -1,39 +1,61 @@
-import algorithms.HeapSort;
-import algorithms.MergeSort;
-import algorithms.QuickSort;
+import algorithms.*;
 
 public class Main {
 
     public static void main(String[] args) {
-        int[] numbers = {5, 12, 10, 7, -1, 234, 67, 109, 11};
 
-        QuickSort.quickSort(numbers);
+        int[] numbersToQuickSort = SupportedUtils.creatingRandomNumberArray();
+        long start = System.currentTimeMillis();
+        QuickSort.quickSort(numbersToQuickSort);
         System.out.print("Sorted by quickSort: ");
-        for (int number : numbers) {
-            System.out.print(number + ", ");
-        }
+        SupportedUtils.printArray(numbersToQuickSort);
+        System.out.print("Sort time: " + (System.currentTimeMillis() - start));
 
         System.out.println();
 
-        int[] numbersToMergeSort = {5, 12, 12, 10, 7, -1, 234, 67, 109, 11};
+        int[] numbersToMergeSort = SupportedUtils.creatingRandomNumberArray();
+        start = System.currentTimeMillis();
         MergeSort.mergeSort(numbersToMergeSort);
         System.out.print("Sorted by mergeSort: ");
-        for (int number : numbersToMergeSort) {
-            System.out.print(number + ", ");
-        }
+        SupportedUtils.printArray(numbersToMergeSort);
+        System.out.print("Sort time: " + (System.currentTimeMillis() - start));
 
         System.out.println();
 
-
-        int[] numbersToHeapSort = {5, 12, 12, 10, 7, -1, 234, 67, 109, 11};
+        int[] numbersToHeapSort = SupportedUtils.creatingRandomNumberArray();
+        start = System.currentTimeMillis();
         HeapSort.heapSort(numbersToHeapSort);
         System.out.print("Sorted by heapSort: ");
-        for (int number : numbersToHeapSort) {
-            System.out.print(number + ", ");
-        }
+        SupportedUtils.printArray(numbersToHeapSort);
+        System.out.print("Sort time: " + (System.currentTimeMillis() - start));
 
         System.out.println();
 
+        int[] numbersToBubbleSort = SupportedUtils.creatingRandomNumberArray();
+        start = System.currentTimeMillis();
+        BubbleSort.bubbleSort(numbersToBubbleSort);
+        System.out.print("Sorted by bubbleSort: ");
+        SupportedUtils.printArray(numbersToBubbleSort);
+        System.out.print("Sort time: " + (System.currentTimeMillis() - start));
 
+        System.out.println();
+
+        int[] numbersToSelectSort = SupportedUtils.creatingRandomNumberArray();
+        start = System.currentTimeMillis();
+        SelectSort.selectSort(numbersToSelectSort);
+        System.out.print("Sorted by selectSort: ");
+        SupportedUtils.printArray(numbersToSelectSort);
+        System.out.print("Sort time: " + (System.currentTimeMillis() - start));
+
+        System.out.println();
+
+        int[] numbersToInsertionSort = SupportedUtils.creatingRandomNumberArray();
+        start = System.currentTimeMillis();
+        InsertionSort.insertionSort(numbersToInsertionSort);
+        System.out.print("Sorted by insertionSort: ");
+        SupportedUtils.printArray(numbersToInsertionSort);
+        System.out.print("Sort time: " + (System.currentTimeMillis() - start));
+
+        System.out.println();
     }
 }

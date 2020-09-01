@@ -18,7 +18,7 @@ public class HeapSort {
         }
 
         for(int i = n - 1; i > 0; i--){
-            swap(numbers, 0, i);
+            SupportedUtils.swap(numbers, 0, i);
             --n;
             validateMaxHeap(numbers, n, 0);
         }
@@ -36,14 +36,8 @@ public class HeapSort {
             maxValueIndex = rightChildIndex;
         }
         if(maxValueIndex != parentIndex){
-            HeapSort.swap(numbers, maxValueIndex, parentIndex);
+            SupportedUtils.swap(numbers, maxValueIndex, parentIndex);
             HeapSort.validateMaxHeap(numbers, heapSize, maxValueIndex);
         }
-    }
-
-    private static void swap(int[] numbers, int index1, int index2){
-        int temp = numbers[index1];
-        numbers[index1] = numbers[index2];
-        numbers[index2] = temp;
     }
 }
