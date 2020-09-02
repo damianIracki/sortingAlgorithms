@@ -12,7 +12,7 @@ public class SupportedUtils {
 
     public static int[] creatingRandomNumberArray(){
         Random random = new Random();
-        int[] arrayWithRandomNumber = new int[1000];
+        int[] arrayWithRandomNumber = new int[10000];
         for(int i = 0; i < arrayWithRandomNumber.length; i++){
             arrayWithRandomNumber[i] = random.nextInt(100);
         }

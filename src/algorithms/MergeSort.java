@@ -2,50 +2,46 @@ package algorithms;
 
 public class MergeSort {
 
-    private static void algorithmMergeSort(int[] numbers, int high){
-        if(high < 2){
-            return;
+    private static int[] extraArray;
+
+    private static void mergeSort(int[] array, int leftIndex, int rightIndex){
+        if(leftIndex < rightIndex){
+            int mid = (leftIndex + rightIndex) / 2;
+            mergeSort(array, leftIndex, mid);
+            mergeSort(array, mid + 1, rightIndex);
+            merge(array, leftIndex, mid, rightIndex);
         }
-
-        int mid = high / 2;
-        int[] left = new int[mid];
-        int[] right = new int [high - mid];
-
-        for(int i = 0; i < mid; i++){
-            left[i] = numbers[i];
-        }
-
-        for(int i = mid; i < high; i++){
-            right[i - mid] = numbers[i];
-        }
-
-        algorithmMergeSort(left, mid);
-        algorithmMergeSort(right,high - mid);
-
-        merge(numbers, left, right, mid, high - mid);
     }
 
-    private static void merge( int[] numbers, int[] left, int[] right, int leftIndex, int rightIndex){
-        int i = 0;
-        int j = 0;
-        int k = 0;
+    private static void merge(int[] array, int leftIndex, int midIndex, int rightIndex) {
+        for(int i = leftIndex; i <= rightIndex; i++){
+            extraArray[i] = array[i];
+        }
 
-        while (i < leftIndex && j < rightIndex) {
-            if (left[i] <= right[j]) {
-                numbers[k++] = left[i++];
+        int finger1 = leftIndex;
+        int finger2 = midIndex + 1;
+        int current = leftIndex;
+
+        while(finger1 <= midIndex && finger2 <= rightIndex){
+            if(extraArray[finger1] <= extraArray[finger2]){
+                array[current] = extraArray[finger1];
+                finger1++;
             } else {
-                numbers[k++] = right[j++];
+                array[current] = extraArray[finger2];
+                finger2++;
             }
+            current++;
         }
-        while (i < leftIndex){
-            numbers[k++] = left[i++];
-        }
-        while (j < rightIndex){
-            numbers[k++] = right[j++];
+        while(finger1 <= midIndex){
+            array[current] = extraArray[finger1];
+            current++;
+            finger1++;
+
         }
     }
 
-    public static void mergeSort(int[] numbers){
-        algorithmMergeSort(numbers, numbers.length);
+    public static void sort(int[] array){
+        extraArray = new int[array.length];
+        mergeSort(array, 0, array.length - 1);
     }
 }

@@ -6,18 +6,18 @@ public class Main {
 
         int[] numbersToQuickSort = SupportedUtils.creatingRandomNumberArray();
         long start = System.currentTimeMillis();
-        QuickSort.quickSort(numbersToQuickSort);
+        QuickSort.sort(numbersToQuickSort);
         System.out.print("Sorted by quickSort: ");
-        SupportedUtils.printArray(numbersToQuickSort);
+        //SupportedUtils.printArray(numbersToQuickSort);
         System.out.print("Sort time: " + (System.currentTimeMillis() - start));
 
         System.out.println();
 
         int[] numbersToMergeSort = SupportedUtils.creatingRandomNumberArray();
         start = System.currentTimeMillis();
-        MergeSort.mergeSort(numbersToMergeSort);
+        MergeSort.sort(numbersToMergeSort);
         System.out.print("Sorted by mergeSort: ");
-        SupportedUtils.printArray(numbersToMergeSort);
+        //SupportedUtils.printArray(numbersToMergeSort);
         System.out.print("Sort time: " + (System.currentTimeMillis() - start));
 
         System.out.println();
@@ -26,7 +26,7 @@ public class Main {
         start = System.currentTimeMillis();
         HeapSort.heapSort(numbersToHeapSort);
         System.out.print("Sorted by heapSort: ");
-        SupportedUtils.printArray(numbersToHeapSort);
+        //SupportedUtils.printArray(numbersToHeapSort);
         System.out.print("Sort time: " + (System.currentTimeMillis() - start));
 
         System.out.println();
@@ -35,7 +35,7 @@ public class Main {
         start = System.currentTimeMillis();
         BubbleSort.bubbleSort(numbersToBubbleSort);
         System.out.print("Sorted by bubbleSort: ");
-        SupportedUtils.printArray(numbersToBubbleSort);
+        //SupportedUtils.printArray(numbersToBubbleSort);
         System.out.print("Sort time: " + (System.currentTimeMillis() - start));
 
         System.out.println();
@@ -44,7 +44,7 @@ public class Main {
         start = System.currentTimeMillis();
         SelectSort.selectSort(numbersToSelectSort);
         System.out.print("Sorted by selectSort: ");
-        SupportedUtils.printArray(numbersToSelectSort);
+        //SupportedUtils.printArray(numbersToSelectSort);
         System.out.print("Sort time: " + (System.currentTimeMillis() - start));
 
         System.out.println();
@@ -53,9 +53,18 @@ public class Main {
         start = System.currentTimeMillis();
         InsertionSort.insertionSort(numbersToInsertionSort);
         System.out.print("Sorted by insertionSort: ");
-        SupportedUtils.printArray(numbersToInsertionSort);
+        //SupportedUtils.printArray(numbersToInsertionSort);
         System.out.print("Sort time: " + (System.currentTimeMillis() - start));
 
         System.out.println();
+        int[] numbersToShellSort = SupportedUtils.creatingRandomNumberArray();
+        start = System.currentTimeMillis();
+        ShellSort.shellSort(numbersToShellSort);
+        System.out.print("Sorted by shellSort: ");
+        //SupportedUtils.printArray(numbersToShellSort);
+        System.out.print("Sort time: " + (System.currentTimeMillis() - start));
+
+        System.out.println();
+
     }
 }
